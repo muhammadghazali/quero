@@ -1,0 +1,27 @@
+{
+  "name": "quero",
+  "version": "0.0.1",
+  "description": "Query a list of APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/muhammadghazali/quero.git"
+  },
+  "keywords": [
+    "quero",
+    "ping",
+    "api"
+  ],
+  "author": "Muhammad Ghazali",
+  "license": "private",
+  "dependencies": {
+    "request": "~2.20.0",
+    "lodash": "~1.2.0"
+  },
+  "devDependencies": {
+    "vows": "~0.7.0"
+  }
+}
