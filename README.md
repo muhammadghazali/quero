@@ -24,3 +24,17 @@ The script should also have the ability to accept an array of URLs with identifi
 
 If it is passed an array the results should also contain the identifier.
 ```
+
+# How to test
+
+Install the dependencies:
+
+```sh
+$ npm install
+$ npm install -d
+```
+And execute the test runner:
+
+```sh
+$ npm test
+```
