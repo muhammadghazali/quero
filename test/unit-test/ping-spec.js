@@ -41,7 +41,7 @@ vows.describe('Should handle URLs argument properly')
     },
     'Handle one URL': {
       topic: function (quero) {
-        quero.ping(urls[0], this.callback);
+        quero.ping([urls[0]], this.callback);
       },
       'should return a result if succeed': function (err, result) {
         console.log('result', result);
