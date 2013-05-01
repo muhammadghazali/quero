@@ -19,6 +19,12 @@ var
   'http://npmjs.org'
 ];
 
+function checkQueryResults (result) {
+
+  return (result.hasOwnProperty('pinterest') ||
+    result.hasOwnProperty('stumbleupon'));
+}
+
 vows.describe('Should handle URLs argument properly')
   .addBatch({
   'Load module': {
@@ -58,6 +64,35 @@ vows.describe('Should handle URLs argument properly')
       'should return a result if succeed': function (err, result) {
         assert.throws(err, Error);
         assert.isUndefined(result);
+      }
+    }
+  }
+})
+  .export(module);
+
+
+vows.describe('Should query the APIs')
+  .addBatch({
+  'Load module': {
+    topic: function () {
+      quero = require('./../../');
+      return quero;
+    },
+    'should be loaded': function (topic) {
+      assert.isObject(topic);
+      assert.isNotNull(topic);
+    },
+    'should have a ping function': function (topic) {
+      assert.isFunction(topic.ping);
+    },
+    'Query one URL': {
+      topic: function (quero) {
+        quero.ping(urls[0], this.callback);
+      },
+      'should return a result if succeed': function (err, result) {
+        assert.isNull(err);
+        assert.isObject(result);
+        assert.isTrue(checkQueryResults(result));
       }
     }
   }
