@@ -21,7 +21,7 @@ var
 
 function checkQueryResults (result) {
 
-  return (result.hasOwnProperty('pinterest') ||
+  return (result.hasOwnProperty('linkedin') ||
     result.hasOwnProperty('stumbleupon') ||
     result.hasOwnProperty('facebook') ||
     result.hasOwnProperty('twitter') ||
