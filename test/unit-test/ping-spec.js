@@ -22,7 +22,10 @@ var
 function checkQueryResults (result) {
 
   return (result.hasOwnProperty('pinterest') ||
-    result.hasOwnProperty('stumbleupon'));
+    result.hasOwnProperty('stumbleupon') ||
+    result.hasOwnProperty('facebook') ||
+    result.hasOwnProperty('twitter') ||
+    result.hasOwnProperty('pinterest'));
 }
 
 vows.describe('Should handle URLs argument properly')
