@@ -32,7 +32,7 @@ vows.describe('Should handle URLs argument properly')
   .addBatch({
   'Load module': {
     topic: function () {
-      quero = require('./../../');
+      quero = require('./../');
       return quero;
     },
     'should be loaded': function (topic) {
