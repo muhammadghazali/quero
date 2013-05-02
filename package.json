@@ -20,7 +20,8 @@
   "dependencies": {
     "request": "~2.20.0",
     "lodash": "~1.2.0",
-    "step": "0.0.5"
+    "step": "0.0.5",
+    "async": "~0.2.8"
   },
   "devDependencies": {
     "vows": "~0.7.0"
