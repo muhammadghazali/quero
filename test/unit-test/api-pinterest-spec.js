@@ -6,7 +6,7 @@ var
   vows = require('vows'),
   assert = require('assert');
 
-var pinterestApi = require('./../../lib/apis').facebook;
+var pinterestApi = require('./../../lib/apis').pinterest;
 
 vows.describe('Should load the module')
   .addBatch({
@@ -14,23 +14,24 @@ vows.describe('Should load the module')
     topic: pinterestApi,
     'should load the module': function (topic) {
       assert.isObject(topic);
-      assert.include(topic, 'getUrl');
       assert.include(topic, 'query');
-      assert.isFunction(topic.getUrl);
       assert.isFunction(topic.query);
     }
   }
 })
   .export(module);
 
-vows.describe('Should replace the url holder with encoded url')
+vows.describe('Query the pinterest api should return total count')
   .addBatch({
   'Should build the request url': {
     topic: function () {
-      return pinterestApi.getUrl('http://github.com');
+      pinterestApi.query('http://github.com', this.callback);
     },
-    'should build the request url': function (topic) {
-      assert.isString(topic);
+    'should return the total count': function (err, result) {
+      assert.isNull(err);
+      assert.isObject(result);
+      assert.include(result, 'count');
+      assert.isNumber(result.count);
     }
   }
 })
