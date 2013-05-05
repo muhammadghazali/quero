@@ -10,7 +10,7 @@ vows.describe('Should load the module')
   .addBatch({
   'Load the module': {
     topic: function () {
-      return require('./../../lib/apis/pinterest');
+      return require('./../../lib/apis').pinterest;
     },
     'should load the module': function (topic) {
       assert.isObject(topic);
