@@ -1,0 +1,29 @@
+{
+  "name": "quero",
+  "version": "0.1.0",
+  "description": "Query a list of APIs",
+  "main": "./lib/quero",
+  "scripts": {
+    "test": "node_modules/vows/bin/vows test/unit-test/*-spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/muhammadghazali/quero.git"
+  },
+  "keywords": [
+    "quero",
+    "ping",
+    "api"
+  ],
+  "author": "Muhammad Ghazali",
+  "license": "private",
+  "dependencies": {
+    "request": "~2.20.0",
+    "lodash": "~1.2.0",
+    "step": "0.0.5",
+    "async": "~0.2.8"
+  },
+  "devDependencies": {
+    "vows": "~0.7.0"
+  }
+}
