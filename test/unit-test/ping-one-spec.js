@@ -1,5 +1,5 @@
 /*
- * Ping test suite
+ * Ping the APIs only one test suite
  */
 
 var
