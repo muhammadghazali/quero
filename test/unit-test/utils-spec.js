@@ -1,10 +1,24 @@
 /**
- * Body helper function test suite
+ * Utils test suite
  */
 
 var
   vows = require('vows'),
   assert = require('assert');
+
+vows.describe('Should load the module')
+  .addBatch({
+  'Load the module': {
+    topic: function () {
+      return require('./../../lib/utils/');
+    },
+    'should load the module': function (topic) {
+      assert.include(topic, 'body');
+      assert.include(topic, 'url');
+    }
+  }
+})
+  .export(module);
 
 vows.describe('Should load the module')
   .addBatch({
