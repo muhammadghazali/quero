@@ -29,7 +29,7 @@ var
   {identifier: 'github homepage', url: 'http://github.com'}
 ];
 
-vows.describe('Should able to ping more than URLs')
+vows.describe('Should be able to ping more than URLs')
   .addBatch({
   'Load module': {
     topic: function () {
