@@ -8,16 +8,7 @@ var
 
 var
   quero = {},
-  urls = [
-  'http://google.com',
-  'http://facebook.com',
-  'http://odesk.com',
-  'http://elance.com',
-  'http://parse.com',
-  'http://github.com',
-  'http://nodejs.org',
-  'http://npmjs.org'
-];
+  urls = ['http://google.com'];
 
 function checkQueryResults (result) {
 
@@ -46,7 +37,7 @@ vows.describe('Should throw an Error if an array of urls is empty')
       topic: function (quero) {
         quero.ping([], this.callback);
       },
-      'should return a result if succeed': function (err, result) {
+      'should throw an error': function (err, result) {
         assert.isNotNull(err);
         assert.throws(err, Error);
         assert.equal(err.message, 'We need one or more of URLS');
@@ -73,7 +64,7 @@ vows.describe('Should be able to ping one URL')
     },
     'Handle one URL': {
       topic: function (quero) {
-        quero.ping([urls[0]], this.callback);
+        quero.ping(urls, this.callback);
       },
       'should return a result if succeed': function (err, result) {
         console.log('result', result);
