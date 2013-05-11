@@ -1,4 +1,12 @@
 
+0.1.2 / 2013-05-12 
+==================
+
+  * Extract more functions and write it as an internal module called query.
+  * Extract request helper function as an internal module
+  * Extract url helper functions to url module
+  * Fix the urls validation process and make the url inputs consistent
+
 0.1.1 / 2013-05-09 
 ==================
 
