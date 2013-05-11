@@ -17,7 +17,7 @@ var
 
 var
   quero = {},
-  urls = [
+  validUrls = [
   {identifier: 'nodejs homepage', url: 'http://nodejs.org'},
   {identifier: 'npm homepage', url: 'http://npmjs.org'},
   {identifier: 'yahoo homepage', url: 'http://www.yahoo.com'},
@@ -27,6 +27,10 @@ var
   {identifier: 'elance homepage', url: 'http://elance.com'},
   {identifier: 'parse homepage', url: 'http://parse.com'},
   {identifier: 'github homepage', url: 'http://github.com'}
+],
+  invalidUrls = [
+  {identifier: 'nodejs homepage', url: 'http://nodejs.org'},
+  {idexntifier: 'npm homepage', url: 'http://npmjs.org'}
 ];
 
 vows.describe('Should be able to ping more than URLs')
@@ -45,7 +49,38 @@ vows.describe('Should be able to ping more than URLs')
     },
     'Handle one URL': {
       topic: function (quero) {
-        quero.ping(urls, this.callback);
+        quero.ping(invalidUrls, this.callback);
+      },
+      'should return a result if succeed': function (err, result) {
+        console.log('err', err);
+        console.log('result', result);
+        assert.isNotNull(err);
+        assert.throws(err, Error);
+        assert.equal(err.message, 'We need one or more of valid URLs');
+        assert.isUndefined(result);
+      }
+    }
+  }
+})
+  .export(module);
+
+vows.describe('Should be able to ping more than URLs')
+  .addBatch({
+  'Load module': {
+    topic: function () {
+      quero = require('./../');
+      return quero;
+    },
+    'should be loaded': function (topic) {
+      assert.isObject(topic);
+      assert.isNotNull(topic);
+    },
+    'should have a ping function': function (topic) {
+      assert.isFunction(topic.ping);
+    },
+    'Handle one URL': {
+      topic: function (quero) {
+        quero.ping(validUrls, this.callback);
       },
       'should return a result if succeed': function (err, result) {
         console.log('result', result);
