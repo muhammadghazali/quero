@@ -8,7 +8,7 @@ var
 
 var
   quero = {},
-  urls = ['http://google.com'];
+  urls = [{identifier: 'google homepage', url: 'http://google.com'}];
 
 function checkQueryResults (result) {
 
@@ -40,7 +40,7 @@ vows.describe('Should throw an Error if an array of urls is empty')
       'should throw an error': function (err, result) {
         assert.isNotNull(err);
         assert.throws(err, Error);
-        assert.equal(err.message, 'We need one or more of URLS');
+        assert.equal(err.message, 'We need one or more of valid URLs');
         assert.isUndefined(result);
       }
     }
