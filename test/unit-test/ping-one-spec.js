@@ -67,7 +67,6 @@ vows.describe('Should be able to ping one URL')
         quero.ping(urls, this.callback);
       },
       'should return a result if succeed': function (err, result) {
-        console.log('result', result);
         assert.isNull(err);
         assert.isObject(result);
         assert.isTrue(checkQueryResults(result));
