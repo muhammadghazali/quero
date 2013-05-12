@@ -3,27 +3,38 @@ quero
 
 # Description
 
-Query a list of APIs
+Ping a list of APIs.
 
 # Features
 
 * Ping APIs for one url.
+* Ping APIs for more than one url.
 
-# TODOs
+# How to install
+```javascript
+Install the module directly from git repository, read more here:
 
+* [How to install a private NPM module without my own registry?](http://stackoverflow.com/questions/10386310/how-to-install-a-private-npm-module-without-my-own-registry)
+* [Private npm modules](http://debuggable.com/posts/private-npm-modules:4e68cc7d-1ac4-42d9-995a-343dcbdd56cb)
 ```
-It will be passed a URL and query these APIs:
 
-http://api.ak.facebook.com/restserver.php?v=1.0&method=links.getStats&urls=%%URL%%&format=json
-http://urls.api.twitter.com/1/urls/count.json?url=%%URL%%&callback=twttr.receiveCount
-http://www.linkedin.com/cws/share-count?url=%%URL%%
-http://www.stumbleupon.com/services/1.01/badge.getinfo?url=%%URL%%
-http://api.pinterest.com/v1/urls/count.json?url=%%URL%%
+# How to use
 
-The script should also have the ability to accept an array of URLs with identifiers, example:
-[{"identifier": "yahoo homepage", "url": "http://www.yahoo.com"}, {"identifier": "microsoft homepage", "url": "http://www.microsoft.com"}]
+```javascript
+var quero = require('quero);
 
-If it is passed an array the results should also contain the identifier.
+var validUrls = [
+  {identifier: 'nodejs homepage', url: 'http://nodejs.org'},
+  {identifier: 'npm homepage', url: 'http://npmjs.org'},
+  {identifier: 'yahoo homepage', url: 'http://www.yahoo.com'},
+  {identifier: 'google homepage', url: 'http://google.com'}
+];
+
+quero.ping(validUrls, function (err, results) {
+
+  if(!err)
+    console.log(results);
+});
 ```
 
 # How to test
