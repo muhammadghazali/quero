@@ -11,12 +11,10 @@ Ping a list of APIs.
 * Ping APIs for more than one url.
 
 # How to install
-```javascript
 Install the module directly from git repository, read more here:
 
 * [How to install a private NPM module without my own registry?](http://stackoverflow.com/questions/10386310/how-to-install-a-private-npm-module-without-my-own-registry)
 * [Private npm modules](http://debuggable.com/posts/private-npm-modules:4e68cc7d-1ac4-42d9-995a-343dcbdd56cb)
-```
 
 # How to use
 
