@@ -21,12 +21,7 @@ var
   {identifier: 'nodejs homepage', url: 'http://nodejs.org'},
   {identifier: 'npm homepage', url: 'http://npmjs.org'},
   {identifier: 'yahoo homepage', url: 'http://www.yahoo.com'},
-  {identifier: 'google homepage', url: 'http://google.com'},
-  {identifier: 'facebook homepage', url: 'http://facebook.com'},
-  {identifier: 'odesk homepage', url: 'http://odesk.com'},
-  {identifier: 'elance homepage', url: 'http://elance.com'},
-  {identifier: 'parse homepage', url: 'http://parse.com'},
-  {identifier: 'github homepage', url: 'http://github.com'}
+  {identifier: 'google homepage', url: 'http://google.com'}
 ],
   invalidUrls = [
   {identifier: 'nodejs homepage', url: 'http://nodejs.org'},
@@ -52,8 +47,6 @@ vows.describe('Should be able to ping more than URLs')
         quero.ping(invalidUrls, this.callback);
       },
       'should return a result if succeed': function (err, result) {
-        console.log('err', err);
-        console.log('result', result);
         assert.isNotNull(err);
         assert.throws(err, Error);
         assert.equal(err.message, 'We need one or more of valid URLs');
@@ -83,9 +76,8 @@ vows.describe('Should be able to ping more than URLs')
         quero.ping(validUrls, this.callback);
       },
       'should return a result if succeed': function (err, result) {
-        console.log('result', result);
         assert.isNull(err);
-        assert.isObject(result);
+        assert.isArray(result);
       }
     }
   }
