@@ -68,8 +68,8 @@ vows.describe('Should be able to ping one URL')
       },
       'should return a result if succeed': function (err, result) {
         assert.isNull(err);
-        assert.isObject(result);
-        assert.isTrue(checkQueryResults(result));
+        assert.isArray(result);
+        assert.isTrue(checkQueryResults(result[0].counts));
       }
     }
   }

@@ -1,7 +1,8 @@
 {
   "name": "quero",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Query a list of APIs",
+  "private": true,
   "main": "./lib/quero",
   "scripts": {
     "test": "node_modules/vows/bin/vows test/unit-test/*-spec.js"
@@ -18,12 +19,11 @@
   "author": "Muhammad Ghazali",
   "license": "private",
   "dependencies": {
-    "request": "~2.20.0",
-    "lodash": "~1.2.0",
-    "step": "0.0.5",
-    "async": "~0.2.8"
+    "request": "2.20.x",
+    "step": "0.0.x",
+    "async": "0.2.x"
   },
   "devDependencies": {
-    "vows": "~0.7.0"
+    "vows": "0.7.x"
   }
 }
