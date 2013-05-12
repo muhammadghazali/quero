@@ -19,7 +19,7 @@ Install the module directly from git repository, read more here:
 # How to use
 
 ```javascript
-var quero = require('quero);
+var quero = require('quero');
 
 var validUrls = [
   {identifier: 'nodejs homepage', url: 'http://nodejs.org'},
