@@ -69,6 +69,12 @@ vows.describe('Validate urls')
     'should return false': function (topic) {
       assert.isFalse(topic);
     }
+  },
+  'undefined': {
+    topic: urlUtils.validateUrls(undefined),
+    'should return false': function (topic) {
+      assert.isFalse(topic);
+    }
   }
 })
   .export(module);

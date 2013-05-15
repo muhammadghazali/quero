@@ -21,7 +21,8 @@
   "dependencies": {
     "request": "2.20.x",
     "step": "0.0.x",
-    "async": "0.2.x"
+    "async": "0.2.x",
+    "lodash": "*"
   },
   "devDependencies": {
     "vows": "0.7.x"
