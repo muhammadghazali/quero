@@ -78,3 +78,16 @@ vows.describe('Validate urls')
   }
 })
   .export(module);
+
+vows.describe('Build urls')
+  .addBatch({
+  'Passing valid arguments': {
+    topic: urlUtils.buildRequestUrl('http://api.ak.facebook.com/' +
+      'restserver.php?v=1.0&method=links.getStats&urls=URLHOLDER&format=json',
+      'http://google.com'),
+    'should return a string': function (topic) {
+      assert.isString(topic);
+    }
+  }
+})
+  .export(module);
