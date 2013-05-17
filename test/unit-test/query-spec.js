@@ -8,7 +8,8 @@ var validUrls = [
   {identifier: 'nodejs homepage', url: 'http://nodejs.org'},
   {identifier: 'npm homepage', url: 'http://npmjs.org'},
   {identifier: 'yahoo homepage', url: 'http://www.yahoo.com'},
-  {identifier: 'google homepage', url: 'http://google.com'}
+  {identifier: 'google homepage', url: 'http://google.com'},
+  {identifier: 'facebook homepage', url: 'http://facebook.com'}
 ];
 
 vows.describe('Should load the module')
@@ -30,6 +31,7 @@ vows.describe('Should be able to ping one url')
       apis.query(validUrls, this.callback);
     },
     'should return a result if succeed': function (err, result) {
+      console.log('result', result);
       assert.isNull(err);
       assert.isArray(result);
       assert.isObject(result[0]);
