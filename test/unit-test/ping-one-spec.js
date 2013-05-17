@@ -49,7 +49,7 @@ vows.describe('Should be able to ping one url')
     topic: function () {
       quero.ping(invalidUrlIdentifier, this.callback);
     },
-    'should return a result if succeed': function (err, result) {
+    'should throw an Error': function (err, result) {
       assert.isNotNull(err);
       assert.throws(err, Error);
       assert.equal(err.message, 'We need one or more of valid URLs');
@@ -60,7 +60,7 @@ vows.describe('Should be able to ping one url')
     topic: function () {
       quero.ping(invalidUrl, this.callback);
     },
-    'should return a result if succeed': function (err, result) {
+    'should throw an Error': function (err, result) {
       assert.isNotNull(err);
       assert.throws(err, Error);
       assert.equal(err.message, 'We need one or more of valid URLs');

@@ -87,7 +87,7 @@ vows.describe('Pass invalid arguments')
       return bodyUtils.parse(1,
         '{"result":{"url":"https:\/\/www.odesk.com\/home","in_index":true,"publicid":"2LC2PN","views":4,"title":"Sign In - oDesk           ","thumbnail":"http:\/\/cdn.stumble-upon.com\/images\/nomthumb.png","thumbnail_b":"http:\/\/cdn.stumble-upon.com\/images\/nobthumb.png","submit_link":"http:\/\/www.stumbleupon.com\/submit\/?url=https:\/\/www.odesk.com\/home","badge_link":"http:\/\/www.stumbleupon.com\/badge\/?url=https:\/\/www.odesk.com\/home","info_link":"http:\/\/www.stumbleupon.com\/url\/https%253A\/\/www.odesk.com\/home"},"timestamp":1367185449,"success":true}');
     },
-    'should throw Error':
+    'should throw an Error':
       function (topic) {
         assert.throws(topic, Error);
         assert.isObject(topic);
@@ -97,7 +97,7 @@ vows.describe('Pass invalid arguments')
     topic: function () {
       return bodyUtils.parse('application/json;charset=utf-8', 1);
     },
-    'should throw Error':
+    'should throw an Error':
       function (topic) {
         assert.throws(topic, Error);
         assert.isObject(topic);
@@ -107,7 +107,7 @@ vows.describe('Pass invalid arguments')
     topic: function () {
       return bodyUtils.parse(1, 1);
     },
-    'should throw Error':
+    'should throw an Error':
       function (topic) {
         assert.throws(topic, Error);
         assert.isObject(topic);
