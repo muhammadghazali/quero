@@ -1,6 +1,6 @@
 {
   "name": "quero",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Query a list of APIs",
   "private": true,
   "main": "./lib/quero",
@@ -21,7 +21,7 @@
   "dependencies": {
     "request": "2.20.x",
     "async": "0.2.x",
-    "lodash": "*"
+    "lodash": "1.2.x"
   },
   "devDependencies": {
     "vows": "0.7.x"
