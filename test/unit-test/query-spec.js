@@ -30,7 +30,6 @@ vows.describe('Should be able to ping one url')
       apis.query(validUrls, this.callback);
     },
     'should return a result if succeed': function (err, result) {
-      console.log('result', result);
       assert.isNull(err);
       assert.isArray(result);
       assert.isObject(result[0]);
