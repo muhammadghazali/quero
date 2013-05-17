@@ -6,9 +6,11 @@ var
   vows = require('vows'),
   assert = require('assert');
 
-var
-  quero = {},
-  urls = [{identifier: 'google homepage', url: 'http://google.com'}];
+var quero = require('./../');
+
+var validUrl = [{identifier: 'google homepage', url: 'http://google.com'}];
+var invalidUrlIdentifier = [{idenifier: 'google homepage', url: 'http://google.com'}];
+var invalidUrl = [{identifier: 'google homepage', ulrl: 'http://google.com'}];
 
 function checkQueryResults (result) {
 
@@ -19,58 +21,72 @@ function checkQueryResults (result) {
     result.hasOwnProperty('pinterest'));
 }
 
-vows.describe('Should throw an Error if an array of urls is empty')
+vows.describe('Should load the module')
   .addBatch({
-  'Load module': {
-    topic: function () {
-      quero = require('./../');
-      return quero;
-    },
-    'should be loaded': function (topic) {
-      assert.isObject(topic);
-      assert.isNotNull(topic);
-    },
-    'should have a ping function': function (topic) {
+  'Load the module': {
+    topic: quero,
+    'should load the module': function (topic) {
+      assert.include(topic, 'ping');
       assert.isFunction(topic.ping);
-    },
-    'Handle one URL': {
-      topic: function (quero) {
-        quero.ping([], this.callback);
-      },
-      'should throw an error': function (err, result) {
-        assert.isNotNull(err);
-        assert.throws(err, Error);
-        assert.equal(err.message, 'We need one or more of valid URLs');
-        assert.isUndefined(result);
-      }
     }
   }
 })
   .export(module);
 
-vows.describe('Should be able to ping one URL')
+vows.describe('Should be able to ping one url')
   .addBatch({
-  'Load module': {
+  'Ping with valid urls': {
     topic: function () {
-      quero = require('./../');
-      return quero;
+      quero.ping(validUrl, this.callback);
     },
-    'should be loaded': function (topic) {
-      assert.isObject(topic);
-      assert.isNotNull(topic);
+    'should return a result if succeed': function (err, result) {
+      assert.isNull(err);
+      assert.isArray(result);
+      assert.isTrue(checkQueryResults(result[0].counts));
+    }
+  },
+  'Ping with invalid url identifier format': {
+    topic: function () {
+      quero.ping(invalidUrlIdentifier, this.callback);
     },
-    'should have a ping function': function (topic) {
-      assert.isFunction(topic.ping);
+    'should throw an Error': function (err, result) {
+      assert.isNotNull(err);
+      assert.throws(err, Error);
+      assert.equal(err.message, 'We need one or more of valid URLs');
+      assert.isUndefined(result);
+    }
+  },
+  'Ping with invalid url format': {
+    topic: function () {
+      quero.ping(invalidUrl, this.callback);
     },
-    'Handle one URL': {
-      topic: function (quero) {
-        quero.ping(urls, this.callback);
-      },
-      'should return a result if succeed': function (err, result) {
-        assert.isNull(err);
-        assert.isArray(result);
-        assert.isTrue(checkQueryResults(result[0].counts));
-      }
+    'should throw an Error': function (err, result) {
+      assert.isNotNull(err);
+      assert.throws(err, Error);
+      assert.equal(err.message, 'We need one or more of valid URLs');
+      assert.isUndefined(result);
+    }
+  },
+  'Should throw an Error if an array of urls is empty': {
+    topic: function () {
+      quero.ping([], this.callback);
+    },
+    'should throw an error': function (err, result) {
+      assert.isNotNull(err);
+      assert.throws(err, Error);
+      assert.equal(err.message, 'We need one or more of valid URLs');
+      assert.isUndefined(result);
+    }
+  },
+  'Should throw an Error if we not passed an array of urls': {
+    topic: function () {
+      quero.ping('', this.callback);
+    },
+    'should throw an error': function (err, result) {
+      assert.isNotNull(err);
+      assert.throws(err, Error);
+      assert.equal(err.message, 'We need one or more of valid URLs');
+      assert.isUndefined(result);
     }
   }
 })

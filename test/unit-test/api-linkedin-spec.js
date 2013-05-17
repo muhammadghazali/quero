@@ -29,9 +29,7 @@ vows.describe('Query the linkedin api should return total count')
     },
     'should return the total count': function (err, result) {
       assert.isNull(err);
-      assert.isObject(result);
-      assert.include(result, 'count');
-      assert.isNumber(result.count);
+      assert.isNumber(result);
     }
   }
 })

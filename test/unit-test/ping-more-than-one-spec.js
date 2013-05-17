@@ -16,69 +16,65 @@ var
   assert = require('assert');
 
 var
-  quero = {},
+  quero = require('./../'),
   validUrls = [
   {identifier: 'nodejs homepage', url: 'http://nodejs.org'},
   {identifier: 'npm homepage', url: 'http://npmjs.org'},
   {identifier: 'yahoo homepage', url: 'http://www.yahoo.com'},
   {identifier: 'google homepage', url: 'http://google.com'}
 ],
-  invalidUrls = [
+  invalidUrlsIdentifier = [
   {identifier: 'nodejs homepage', url: 'http://nodejs.org'},
   {idexntifier: 'npm homepage', url: 'http://npmjs.org'}
+],
+  invalidUrls = [
+  {identifier: 'nodejs homepage', url: 'http://nodejs.org'},
+  {identifier: 'npm homepage', urlo: 'http://npmjs.org'}
 ];
 
-vows.describe('Should be able to ping more than URLs')
+vows.describe('Should load the module')
   .addBatch({
-  'Load module': {
-    topic: function () {
-      quero = require('./../');
-      return quero;
-    },
-    'should be loaded': function (topic) {
-      assert.isObject(topic);
-      assert.isNotNull(topic);
-    },
-    'should have a ping function': function (topic) {
+  'Load the module': {
+    topic: quero,
+    'should load the module': function (topic) {
+      assert.include(topic, 'ping');
       assert.isFunction(topic.ping);
-    },
-    'Handle one URL': {
-      topic: function (quero) {
-        quero.ping(invalidUrls, this.callback);
-      },
-      'should return a result if succeed': function (err, result) {
-        assert.isNotNull(err);
-        assert.throws(err, Error);
-        assert.equal(err.message, 'We need one or more of valid URLs');
-        assert.isUndefined(result);
-      }
     }
   }
 })
   .export(module);
 
-vows.describe('Should be able to ping more than URLs')
+vows.describe('Should be able to ping more than one URLs')
   .addBatch({
-  'Load module': {
+  'Ping with valid urls': {
     topic: function () {
-      quero = require('./../');
-      return quero;
+      quero.ping(validUrls, this.callback);
     },
-    'should be loaded': function (topic) {
-      assert.isObject(topic);
-      assert.isNotNull(topic);
+    'should return a result if succeed': function (err, result) {
+      assert.isNull(err);
+      assert.isArray(result);
+    }
+  },
+  'Ping with invalid urls indentifier format': {
+    topic: function () {
+      quero.ping(invalidUrlsIdentifier, this.callback);
     },
-    'should have a ping function': function (topic) {
-      assert.isFunction(topic.ping);
+    'should throw an Error': function (err, result) {
+      assert.isNotNull(err);
+      assert.throws(err, Error);
+      assert.equal(err.message, 'We need one or more of valid URLs');
+      assert.isUndefined(result);
+    }
+  },
+  'Ping with invalid urls format': {
+    topic: function () {
+      quero.ping(invalidUrls, this.callback);
     },
-    'Handle one URL': {
-      topic: function (quero) {
-        quero.ping(validUrls, this.callback);
-      },
-      'should return a result if succeed': function (err, result) {
-        assert.isNull(err);
-        assert.isArray(result);
-      }
+    'should throw an Error': function (err, result) {
+      assert.isNotNull(err);
+      assert.throws(err, Error);
+      assert.equal(err.message, 'We need one or more of valid URLs');
+      assert.isUndefined(result);
     }
   }
 })

@@ -1,4 +1,13 @@
 
+0.2.1 / 2013-05-18
+==================
+
+  * Replace flow controlled by Step with Async in parallel
+  * Achieve more code coverage on some part of the internal modules
+  * Hardening the internal body utils module
+  * Hardening the internal url module
+  * Fixed urls validation logic
+
 0.2.0 / 2013-05-12
 ==================
 
