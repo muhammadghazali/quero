@@ -1,4 +1,10 @@
 
+0.2.2 / 2013-05-20
+==================
+
+  * Extract variables as a constants and other minor changes on code style
+  * Simplify the argument validation
+
 0.2.1 / 2013-05-18
 ==================
 
