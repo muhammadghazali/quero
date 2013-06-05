@@ -22,10 +22,10 @@ vows.describe('Should load the module')
 
 vows.describe('Parse response body')
   .addBatch({
-  'Handle application/javascript;charset=utf-8 content type': {
+  'Handle application/javascript ;charset=utf-8 content type': {
     topic: function () {
 
-      return bodyUtils.parse('application/javascript;charset=utf-8',
+      return bodyUtils.parse('application/javascript ;charset=utf-8',
         'twttr.receiveCount/({"count":7020,"url":"http:\\/\\/google.com\\/"});');
     },
     'should parse the application/javascript body successfully':
@@ -33,10 +33,10 @@ vows.describe('Parse response body')
         assert.isObject(topic);
       }
   },
-  'Handle application/javascript;charset=UTF-8 content type': {
+  'Handle application/javascript ;charset=UTF-8 content type': {
     topic: function () {
 
-      return bodyUtils.parse('application/javascript;charset=utf-8',
+      return bodyUtils.parse('application/javascript ;charset=utf-8',
         '{"count":0,"fCnt":"0","fCntPlusOne":"1","url":"https:\/\/www.odesk.com\/home"}');
     },
     'should parse the application/javascript body successfully':
@@ -95,7 +95,7 @@ vows.describe('Pass invalid arguments')
   },
   'Should throw Error if body argument is not string': {
     topic: function () {
-      return bodyUtils.parse('application/json;charset=utf-8', 1);
+      return bodyUtils.parse('application/json ;charset=utf-8', 1);
     },
     'should throw an Error':
       function (topic) {

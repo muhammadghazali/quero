@@ -23,7 +23,7 @@ vows.describe('Should load the module')
 
 vows.describe('Query the twitter api should return total count')
   .addBatch({
-  'Query the twitter api': {
+  'Query the api': {
     topic: function () {
       twitterApi.query('http://github.com', this.callback);
     },
