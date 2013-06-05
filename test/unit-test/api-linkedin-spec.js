@@ -23,7 +23,7 @@ vows.describe('Should load the module')
 
 vows.describe('Query the linkedin api should return total count')
   .addBatch({
-  'Should build the request url': {
+  'Query the api': {
     topic: function () {
       linkedinApi.query('http://github.com', this.callback);
     },

@@ -1,6 +1,6 @@
 {
   "name": "quero",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Query a list of APIs",
   "private": true,
   "main": "./lib/quero",
