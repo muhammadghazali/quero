@@ -23,11 +23,13 @@ vows.describe('Should load the module')
 
 vows.describe('Query the twitter api should return total count')
   .addBatch({
-  'Should build the request url': {
+  'Query the twitter api': {
     topic: function () {
       twitterApi.query('http://github.com', this.callback);
     },
     'should return the total count': function (err, result) {
+      console.log('err', err);
+      console.log('result', result);
       assert.isNull(err);
       assert.isNumber(result);
     }
