@@ -25,5 +25,6 @@
   },
   "devDependencies": {
     "vows": "0.7.x"
-  }
+  },
+  "engines": ">=0.8.x"
 }
