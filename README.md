@@ -50,3 +50,8 @@ And execute the test runner:
 ```sh
 $ npm test
 ```
+
+## License
+
+Licensed under the MIT License.
+=======
