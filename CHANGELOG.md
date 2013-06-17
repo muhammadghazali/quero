@@ -1,4 +1,12 @@
 
+0.2.4 / 2013-06-17 
+==================
+
+  * Set the supported Node engine version
+  * Define initial CI config and choose v0.10 and v0.8 to test againts
+  * Update dependencies. Update request to v2.21 and lodash to v1.3
+  * Add more content type string to check
+
 0.2.3 / 2013-06-06
 ==================
 
