@@ -12,6 +12,6 @@ logs
 results
 
 npm-debug.log
-nbproject
+*sublime*
 node_modules
 coverage
