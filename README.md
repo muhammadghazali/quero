@@ -1,5 +1,7 @@
 quero
 =====
+[![Build Status](https://travis-ci.org/muhammadghazali/quero.png?branch=master)](https://travis-ci.org/muhammadghazali/quero)
+[![Dependency Status](https://gemnasium.com/muhammadghazali/quero.png)](https://gemnasium.com/muhammadghazali/quero)
 
 # Description
 
@@ -52,3 +54,4 @@ $ npm test
 ## License
 
 Licensed under the MIT License.
+=======
