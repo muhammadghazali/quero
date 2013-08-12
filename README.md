@@ -1,6 +1,8 @@
 quero
 =====
+
 [![Build Status](https://travis-ci.org/muhammadghazali/quero.png?branch=master)](https://travis-ci.org/muhammadghazali/quero)
+
 [![Dependency Status](https://gemnasium.com/muhammadghazali/quero.png)](https://gemnasium.com/muhammadghazali/quero)
 
 # Description
@@ -13,6 +15,7 @@ Ping a list of APIs.
 * Ping APIs for more than one url.
 
 # How to install
+
 Install the module directly from git repository, read more here:
 
 * [How to install a private NPM module without my own registry?](http://stackoverflow.com/questions/10386310/how-to-install-a-private-npm-module-without-my-own-registry)
@@ -54,4 +57,3 @@ $ npm test
 ## License
 
 Licensed under the MIT License.
-=======
